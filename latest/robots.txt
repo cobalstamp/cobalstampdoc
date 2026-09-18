@@ -1,0 +1,1 @@
+Sitemap: https://docs.cobalstamp.dev/latest/sitemap.xml
