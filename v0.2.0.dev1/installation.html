@@ -1,13 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head><meta charset="utf-8">
+  <head>
+    <meta name="robots" content="noindex"><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#"><link rel="search" title="Search" href="search.html">
-        <link rel="canonical" href="https://docs.cobalstamp.dev/latest/genindex.html">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Marking" href="marking.html"><link rel="prev" title="Cobalstamp documentation" href="index.html">
+        <link rel="canonical" href="https://docs.cobalstamp.dev/v0.2.0.dev1/installation.html">
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
-    <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 --><title>Index - Cobalstamp documentation 0.2.0.dev1</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
+    <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Installation - Cobalstamp documentation 0.2.0.dev1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -173,7 +176,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -196,8 +199,8 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marking.html">Marking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -222,7 +225,9 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
@@ -230,65 +235,91 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a></div>
+          <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<p>You can simply use pip:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cobalstamp
+</pre></div>
+</div>
+<p>Then, you can run some python code, ex.:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import cobalstamp; print(cobalstamp.__version__)&#39;</span>
+</pre></div>
+</div>
+<section id="api-key">
+<h2>API key<a class="headerlink" href="#api-key" title="Link to this heading">¶</a></h2>
+<p>Cobalstamp is a “connected module”:
+First, you have to provide an API key in the environment variables that you
+obtain through <a class="reference external" href="https://www.cobalstamp.dev/app/api-keys">the cobalstamp website</a>, ex.:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COBALSTAMP_KEY</span><span class="o">=</span>api_duJhSwq878ii44VkyD0X3AIjG1eBpf0kZM3Zek4YXQHTlZhgGqxrWip7z6p8pyUW
+</pre></div>
+</div>
+<p>The key must start with <code class="docutils literal notranslate"><span class="pre">api_</span></code> and be exactly 68 characters long.</p>
 </section>
-<section id="B" class="genindex-section">
-  <h2>B</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    built-in function
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.detect">cobalstamp.detect()</a>
-</li>
-          <li><a href="marking.html#cobalstamp.mark">cobalstamp.mark()</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
+<section id="license-verification">
+<h2>License verification<a class="headerlink" href="#license-verification" title="Link to this heading">¶</a></h2>
+<p>When loading the module with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cobalstamp</span></code>, the license is checked
+through the network and validated.
+This validation process starts when the module is loading, in the background,
+which minimize any delay before audio processing.</p>
+<p>If the license is not valid, and you run any processing function, a
+<code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> exception will be raised.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No matter the validity of your license, you will always be able to import
+the cobalstamp module.
+This is to avoid that a licensing issue blocks a whole service that makes
+use of cobalstamp.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When marking, the audio is processed locally on your machine.
+When detecting, the audio is sent to the server, which looks for
+registered marks in it (see <a class="reference internal" href="marking.html#marking"><span class="std std-ref">Marking</span></a>).</p>
+</div>
 </section>
-
-<section id="C" class="genindex-section">
-  <h2>C</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    cobalstamp.detect()
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.detect">built-in function</a>
-</li>
-        </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    cobalstamp.mark()
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.mark">built-in function</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<p>To verify that everything is setup properly, you can run the tests provided
+with the module:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import cobalstamp.tests; cobalstamp.tests.run()&#39;</span>
+</pre></div>
+</div>
+<p>This runs smoke tests.</p>
+<p>Note that this command does <em>not</em> run all regression tests, as
+they are too heavy to be shipped with the python module.</p>
 </section>
-
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="marking.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Marking</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -307,8 +338,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#api-key">API key</a></li>
+<li><a class="reference internal" href="#license-verification">License verification</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

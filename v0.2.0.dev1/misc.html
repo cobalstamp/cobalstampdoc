@@ -1,13 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head><meta charset="utf-8">
+  <head>
+    <meta name="robots" content="noindex"><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#"><link rel="search" title="Search" href="search.html">
-        <link rel="canonical" href="https://docs.cobalstamp.dev/latest/genindex.html">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="License" href="license.html"><link rel="prev" title="Marking" href="marking.html">
+        <link rel="canonical" href="https://docs.cobalstamp.dev/v0.2.0.dev1/misc.html">
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
-    <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 --><title>Index - Cobalstamp documentation 0.2.0.dev1</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
+    <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>Miscellaneous - Cobalstamp documentation 0.2.0.dev1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -173,7 +176,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -196,10 +199,10 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marking.html">Marking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Miscellaneous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="attributions.html">Attributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
@@ -222,7 +225,9 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
@@ -230,65 +235,83 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a></div>
+          <section id="miscellaneous">
+<h1>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">¶</a></h1>
+<section id="login-state">
+<span id="misc-login-state"></span><h2>Login state<a class="headerlink" href="#login-state" title="Link to this heading">¶</a></h2>
+<p>The SDK logs in to the server in the background at import time, so right
+after importing the module the login may still be running.</p>
+<p>You can check the login state with <code class="docutils literal notranslate"><span class="pre">cobalstamp.ready()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cobalstamp</span>
+<span class="n">cobalstamp</span><span class="o">.</span><span class="n">ready</span><span class="p">()</span>  <span class="c1"># True if the SDK has finished logging in</span>
+</pre></div>
+</div>
+<p>It returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only once the login succeeded. Polling it before your
+first call to <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark</span></code> is usually unnecessary, because marking
+waits for the login internally.</p>
 </section>
-<section id="B" class="genindex-section">
-  <h2>B</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    built-in function
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.detect">cobalstamp.detect()</a>
-</li>
-          <li><a href="marking.html#cobalstamp.mark">cobalstamp.mark()</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
+<section id="slow-connection">
+<span id="misc-slow-connection"></span><h2>Slow connection<a class="headerlink" href="#slow-connection" title="Link to this heading">¶</a></h2>
+<p>In case you are on a slow connection, you can increase the timeout for the connection to the server.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COBALSTAMP_TIMEOUT</span><span class="o">=</span><span class="m">20</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cobalstamp; print(cobalstamp.__version__)&quot;</span>
+</pre></div>
+</div>
 </section>
-
-<section id="C" class="genindex-section">
-  <h2>C</h2>
-  <table style="width: 100%" class="indextable genindextable"><tr>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    cobalstamp.detect()
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.detect">built-in function</a>
-</li>
-        </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li>
-    cobalstamp.mark()
-
-        <ul>
-          <li><a href="marking.html#cobalstamp.mark">built-in function</a>
-</li>
-        </ul></li>
-    </ul></td>
-  </tr></table>
+<section id="multiprocessing">
+<span id="misc-multiprocessing"></span><h2>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Link to this heading">¶</a></h2>
+<p>Cobalstamp Python SDK uses a C/C++ python extension and this is generally not safe to use with the ‘fork’ start method (ex. like pytorch, tensorflow, etc.)
+Thus, when using multiprocessing, you need to use the ‘spawn’ start method instead of the ‘fork’ start method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="n">multiprocessing</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s1">&#39;spawn&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-
+<section id="exit-on-interrupt-eoi">
+<span id="misc-eoi"></span><h2>Exit On Interrupt (EOI)<a class="headerlink" href="#exit-on-interrupt-eoi" title="Link to this heading">¶</a></h2>
+<p>Many C/C++ written python modules won’t react to a ctrl-c interruption (or equivalent).
+The C/C++ part will first finish its execution and the python part will then handle any ctrl-c.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">cobalstamp.eoi()</span></code> after loading the module</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cobalstamp</span>
+<span class="n">cobalstamp</span><span class="o">.</span><span class="n">eoi</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>allows any ctrl-c to kill the C/C++ part immediately.</p>
+<p>You can deactivate <code class="docutils literal notranslate"><span class="pre">eoi()</span></code> with <code class="docutils literal notranslate"><span class="pre">cobalstamp.uneoi()</span></code></p>
+<p>By default, this uncommon behavior is disabled.</p>
+</section>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="license.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">License</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="marking.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Marking</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -307,8 +330,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#login-state">Login state</a></li>
+<li><a class="reference internal" href="#slow-connection">Slow connection</a></li>
+<li><a class="reference internal" href="#multiprocessing">Multiprocessing</a></li>
+<li><a class="reference internal" href="#exit-on-interrupt-eoi">Exit On Interrupt (EOI)</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

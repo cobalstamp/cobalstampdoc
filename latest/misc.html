@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Miscellaneous - Cobalstamp documentation 0.2.0</title>
+        <title>Miscellaneous - Cobalstamp documentation 0.2.0.dev1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.2.0</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.2.0.dev1</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.2.0</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.2.0.dev1</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -254,20 +254,20 @@ after importing the module the login may still be running.</p>
 first call to <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark</span></code> is usually unnecessary, because marking
 waits for the login internally.</p>
 </section>
+<section id="slow-connection">
+<span id="misc-slow-connection"></span><h2>Slow connection<a class="headerlink" href="#slow-connection" title="Link to this heading">¶</a></h2>
+<p>In case you are on a slow connection, you can increase the timeout for the connection to the server.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COBALSTAMP_TIMEOUT</span><span class="o">=</span><span class="m">20</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cobalstamp; print(cobalstamp.__version__)&quot;</span>
+</pre></div>
+</div>
+</section>
 <section id="multiprocessing">
 <span id="misc-multiprocessing"></span><h2>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Link to this heading">¶</a></h2>
 <p>Cobalstamp Python SDK uses a C/C++ python extension and this is generally not safe to use with the ‘fork’ start method (ex. like pytorch, tensorflow, etc.)
 Thus, when using multiprocessing, you need to use the ‘spawn’ start method instead of the ‘fork’ start method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="n">multiprocessing</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s1">&#39;spawn&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="slow-connection">
-<span id="misc-slow-connection"></span><h2>Slow connection<a class="headerlink" href="#slow-connection" title="Link to this heading">¶</a></h2>
-<p>In case you are on a slow connection, you can increase the timeout for the connection to the server.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COBALSTAMP_TIMEOUT</span><span class="o">=</span><span class="m">20</span>
-python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cobalstamp; print(cobalstamp.__version__)&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -343,8 +343,8 @@ The C/C++ part will first finish its execution and the python part will then han
             <ul>
 <li><a class="reference internal" href="#">Miscellaneous</a><ul>
 <li><a class="reference internal" href="#login-state">Login state</a></li>
-<li><a class="reference internal" href="#multiprocessing">Multiprocessing</a></li>
 <li><a class="reference internal" href="#slow-connection">Slow connection</a></li>
+<li><a class="reference internal" href="#multiprocessing">Multiprocessing</a></li>
 <li><a class="reference internal" href="#exit-on-interrupt-eoi">Exit On Interrupt (EOI)</a></li>
 </ul>
 </li>
@@ -357,7 +357,7 @@ The C/C++ part will first finish its execution and the python part will then han
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=1be0d999"></script>
+</div><script src="_static/documentation_options.js?v=4cac92f7"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
