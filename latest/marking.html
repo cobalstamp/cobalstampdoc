@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.2.0.dev1</title>
+        <title>Marking - Cobalstamp documentation 0.2.0.dev128</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.2.0.dev1</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.2.0.dev128</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.2.0.dev1</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.2.0.dev128</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -203,6 +203,8 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Marking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html#general-terms">1. General Terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html#specific-terms">2. Specific Terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="attributions.html">Attributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
 </ul>
@@ -245,7 +247,7 @@
 (detection). Marking embeds the watermark locally on your machine and
 registers the mark on the server. Detection sends the audio to the server,
 which looks for registered marks in it.</p>
-<p>Both operations work with mono or multichannel audio as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of
+<p>Both operations work with mono audio as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of
 type <code class="docutils literal notranslate"><span class="pre">float32</span></code> (or <code class="docutils literal notranslate"><span class="pre">float64</span></code> for <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>), with
 amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p>
 <section id="minimal-example">
@@ -258,7 +260,7 @@ amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,<
 <span class="n">wav</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">soundfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;input.wav&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 
 <span class="c1"># Add a watermark. isTest=True keeps the session erasable (on the</span>
-<span class="c1"># website); pass isTest=False for production marks.</span>
+<span class="c1"># website); pass isTest=False for production and permanent marks.</span>
 <span class="n">marked</span> <span class="o">=</span> <span class="n">cobalstamp</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">isai</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">isTest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Detect a watermark. The audio is sent to the server, which looks</span>
@@ -297,14 +299,17 @@ server.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav</strong> – Input audio signal. A <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of type <code class="docutils literal notranslate"><span class="pre">float32</span></code> or
-<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. One-dimensional mono or
-two-dimensional <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_channels)</span></code> multichannel audio is
-accepted; the channels are averaged to mono before encoding.</p></li>
+<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. One-dimensional mono audio
+is accepted.</p></li>
 <li><p><strong>fs</strong> (<em>float</em>) – Sampling rate in Hz.</p></li>
-<li><p><strong>isai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the audio is AI-generated.</p></li>
+<li><p><strong>isai</strong> – Declares how the audio relates to AI: <code class="docutils literal notranslate"><span class="pre">False</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">&quot;not_ai&quot;</span></code>) when the audio is not AI-related, <code class="docutils literal notranslate"><span class="pre">True</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">&quot;ai_generated&quot;</span></code>) when the audio is AI-generated, and
+<code class="docutils literal notranslate"><span class="pre">&quot;ai_transformed&quot;</span></code> when the audio is produced by an AI
+transformation.</p></li>
 <li><p><strong>isTest</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>). Test sessions
 (<code class="docutils literal notranslate"><span class="pre">isTest=True</span></code>) can be purged permanently via the website. Marks
-with <code class="docutils literal notranslate"><span class="pre">isTest=False</span></code> are kept on the server and cannot be erased.
+with <code class="docutils literal notranslate"><span class="pre">isTest=False</span></code> are preserved.
 Pass <code class="docutils literal notranslate"><span class="pre">isTest=False</span></code> for production marks.</p></li>
 </ul>
 </dd>
@@ -325,7 +330,7 @@ Detection is done on the server.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav</strong> – Input audio signal (<code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, <code class="docutils literal notranslate"><span class="pre">float32</span></code>,
-<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>; multichannel input is averaged to mono).</p></li>
+<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>; mono only).</p></li>
 <li><p><strong>fs</strong> (<em>float</em>) – Sampling rate in Hz.</p></li>
 </ul>
 </dd>
@@ -344,13 +349,12 @@ Detection is done on the server.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">COBALSTAMP_KEY</span></code>: the API key (license token). It must start with
 <code class="docutils literal notranslate"><span class="pre">api_</span></code> and be exactly 68 characters long. Create a key at
-<a class="reference external" href="https://www.cobalstamp.dev/app/api-keys">https://www.cobalstamp.dev/app/api-keys</a>.</p></li>
+<a class="reference external" href="https://www.cobalstamp.dev/app/api-keys">https://www.cobalstamp.dev/app/api-keys</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COBALSTAMP_TIMEOUT</span></code>: timeout in seconds for the connections to the
 server. It is applied when the SDK session starts, i.e. before the first
 call to the server, so it is in effect for the login (for example
 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">COBALSTAMP_TIMEOUT=20</span></code> on a slow connection, see
-<a class="reference internal" href="misc.html#misc-slow-connection"><span class="std std-ref">Slow connection</span></a>). A call to <code class="docutils literal notranslate"><span class="pre">cobalstamp.set_timeout</span></code>
-overrides it.</p></li>
+<a class="reference internal" href="misc.html#misc-slow-connection"><span class="std std-ref">Slow connection</span></a>).</p></li>
 </ul>
 </section>
 </section>
@@ -384,7 +388,7 @@ overrides it.</p></li>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2026 Phoneshift EURL, France.
+                Copyright &#169; 2026 Phoneshift, France.
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -433,7 +437,7 @@ overrides it.</p></li>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=4cac92f7"></script>
+</div><script src="_static/documentation_options.js?v=231bafdd"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
