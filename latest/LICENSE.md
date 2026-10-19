@@ -1,6 +1,6 @@
 Copyright © 2025-2026 Phoneshift, France. contact@cobalstamp.dev
 
-Last updated: October 12th, 2026.
+Last updated: October 19th, 2026.
 
 # 1. General Terms
 
@@ -64,11 +64,17 @@ All audio watermarking is performed exclusively on the local device upon which y
 
 Audio signals are transmitted to the Company's servers only when you use the detection service, and are processed there solely for the purpose of detecting marks within them.
 
+When the detection of an audio signal submitted to the detection service cannot be completed at the time of the request, you acknowledge and agree that the Company may retain that audio signal on its servers for as long as necessary to complete that detection.
+This retention is a limited right exercised solely for the purpose of completing that detection, and the Company does not use that audio signal for any other purpose.
+Audio signals retained pending the completion of a detection are permanently deleted once that detection is completed.
+Notwithstanding the preceding sentences, the Company may retain an audio signal for as long as necessary for the establishment, exercise, or defense of legal claims.
+
 By accepting these Terms, you expressly acknowledge and agree that the Company exercises no control whatsoever over any material processed by you through the Products.
 
 By using any of our Products, you acknowledge and agree that you are solely responsible for ensuring compliance with all applicable laws and regulations regarding the material you process through our Products.
 
-The processing of audio signals through the use of the Products shall not be construed to confer upon the Company any ownership, rights, title, or interest, whether in whole or in part, in either the input or output signals.
+You retain full ownership and control over all audio material processed through the Products.
+The processing of audio signals through the use of the Products, including their retention on the Company's servers, shall not be construed to confer upon the Company any ownership, rights, title, or interest, whether in whole or in part, in either the input or output signals.
 
 
 ## 1.4 Liability
@@ -122,6 +128,7 @@ This provision also applies in circumstances where a third party gains unauthori
 ## 1.6 Data Commitments
 
 This section sets forth the Company's contractual commitments regarding your data.
+The handling of audio signals is governed by Section 1.3.2 (Your audio).
 Additional information regarding data processing practices is made available in our Privacy Policy, published on our Website, in compliance with applicable data protection regulations. The content and accessibility of the Privacy Policy are provided for informational and regulatory purposes only and do not constitute contractual obligations.
 
 ### 1.6.1 Data Collected
@@ -132,27 +139,23 @@ The Company collects and retains only the data strictly necessary to provide the
 - **Billing-related usage metrics**: Data necessary to track consumption against your subscribed quota for invoicing purposes.
 - **Anonymized usage statistics**: Fully anonymized usage metrics collected for product improvement, issue detection, and aggregate analytics. These metrics contain no personal data and cannot be linked back to any individual user or account.
 
-### 1.6.2 Audio Data Guarantee
-
-All audio watermarking is performed exclusively on the local device upon which you installed the Products. Audio signals are transmitted to the Company's servers only when you use the detection service, and are processed there solely for the purpose of detecting marks within them. You retain full ownership and control over all audio material processed through the Products.
-
-### 1.6.3 No Sale of Personal Data
+### 1.6.2 No Sale of Personal Data
 
 The Company will not sell, rent, or exchange your personal data to any third party for any purpose.
 
-### 1.6.4 Marketing Consent
+### 1.6.3 Marketing Consent
 
 The Company will not use your name or your company's name in public marketing statements, press releases, or promotional materials without your prior written permission.
 
-### 1.6.5 Data Retention Commitment
+### 1.6.4 Data Retention Commitment
 
 The Company will retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by applicable law (including tax and accounting obligations). Upon expiration of the applicable retention period, the data will be permanently deleted. The Company may retain data necessary for the establishment, exercise, or defense of legal claims.
 
-### 1.6.6 Data Transfer and Storage Consent
+### 1.6.5 Data Transfer and Storage Consent
 
 Our web Services are operated in various countries (see Privacy Policy). By using our Products and Websites and/or providing us with your personal information, you consent to the transfer and storage of your data through and in those countries, as well as any transfers to third-party subprocessors used for billing and infrastructure.
 
-### 1.6.7 Data Rights
+### 1.6.6 Data Rights
 
 You may exercise your data protection rights, including access, rectification, erasure, portability, restriction of processing, and objection, at any time by contacting legal@cobalstamp.dev. The Company will respond to valid requests within the timeframes required by applicable law.
 
@@ -206,7 +209,7 @@ We reserve right to not serve users whose connections go from or through countri
 
 The Company reserves the right to retain any evidence of unfair competitive practices and to present such evidence before the appropriate legal authorities or jurisdictions as deemed necessary.
 
-Pursuant to the European Union General Data Protection Regulation (GDPR), the retention and processing of any data, including personal information, is permitted to the extent that such data may be required for the resolution of disputes (See Section 1.6.5).
+Pursuant to the European Union General Data Protection Regulation (GDPR), the retention and processing of any data, including personal information, is permitted to the extent that such data may be required for the resolution of disputes (See Section 1.6.4).
 
 ### 1.8.2 Prohibition on Competing Services
 
@@ -356,7 +359,7 @@ After cancellation (no matter how it was canceled), within 60 days, all data we 
 There are three exceptions to the retention periods above:
 
 * Tax and other administrative laws might force us to keep some data. We will always do our best to delete this type of information as soon as possible.
-* Data that has any value for handling any dispute or litigation might be held as long as necessary (see Section 1.6.5).
+* Data that has any value for handling any dispute or litigation might be held as long as necessary (see Section 1.6.4).
 * Fully anonymized information (see Section 1.6.1).
 
 ### 2.1.6 Termination
