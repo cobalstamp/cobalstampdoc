@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.5.2</title>
+        <title>Marking - Cobalstamp documentation 0.5.3</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.5.2</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.5.3</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.5.2</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.5.3</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -290,27 +290,24 @@ server.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav</strong> – Input audio signal. A <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of type <code class="docutils literal notranslate"><span class="pre">float32</span></code> or
-<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. One-dimensional mono audio
-is accepted.</p></li>
-<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate in Hz.</p></li>
-<li><p><strong>is_ai</strong> (<em>bool</em>) – Declares whether the audio is AI-related: <code class="docutils literal notranslate"><span class="pre">False</span></code>
-when the audio is not AI-related, <code class="docutils literal notranslate"><span class="pre">True</span></code> when it is.</p></li>
+<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. Only one-dimensional mono audio is accepted for now.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) – Sampling rate of the audio signal in Hz.</p></li>
+<li><p><strong>is_ai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> when declaring that the audio is created using AI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
 <li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
-when the audio is AI-generated (ex. audio from text),
-<code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced by an AI transformation
+when the audio is AI-generated (ex. text-to-audio),
+<code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced by an AI transformation process
 (audio-to-audio). Ignored when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 <li><p><strong>is_test</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>). Test sessions
 (<code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>) purgeable with <a class="reference internal" href="#cobalstamp.forget" title="cobalstamp.forget"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a>.
 <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> is not accepted at this time.</p></li>
-<li><p><strong>clip_fn</strong> – Protects the marked audio from exceeding full scale,
-where any export to an integer format would produce harsh clipping.
+<li><p><strong>clip_fn</strong> – Protects the marked audio from exceeding <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>,
+where an export would produce harsh clipping.
 <code class="docutils literal notranslate"><span class="pre">&quot;compress&quot;</span></code> (default) applies a soft compression to the samples
 near full scale only; the rest of the audio is left unchanged.
-<code class="docutils literal notranslate"><span class="pre">&quot;rescale&quot;</span></code> slightly lowers the level of the whole marked audio
+<code class="docutils literal notranslate"><span class="pre">&quot;rescale&quot;</span></code> slightly lowers the level of the whole marked audio so that it stays within <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>
 (a fraction of a decibel, and only when the marked audio would
-exceed full scale) so that it stays within it.
-<code class="docutils literal notranslate"><span class="pre">None</span></code> disables the protection: the marked audio may then exceed
-<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p></li>
+exceed full scale).
+<code class="docutils literal notranslate"><span class="pre">None</span></code> disables the protection: the marked audio may then exceed <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -320,10 +317,8 @@ exceed full scale) so that it stays within it.
 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array.</p></li>
 <li><p>An info dictionary with:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;result&quot;</span></code>: the marking outcome, <code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code> when the mark
-was embedded and registered.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code>: the public mark id of this marking (a UUID),
-stable for this marking.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;result&quot;</span></code>: the marking outcome, <code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code> when the mark was embedded and registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code>: the public mark id of this marking (a UUID).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;is_test&quot;</span></code>: the test-mode flag of this marking.</p></li>
 </ul>
 </li>
@@ -336,13 +331,11 @@ stable for this marking.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="cobalstamp.detect">
 <span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.detect" title="Link to this definition">¶</a></dt>
-<dd><p>Detect a Cobalstamp watermark in an audio signal.</p>
-<p>The audio is sent to the server in a single request, and the server
-returns its verdict. The server runs a quick first pass that answers
-within seconds; only when it does not reach a verdict does it enqueue
-the extended search as a background job and return the pending state.
-The final verdict for that audio will then be available a forthcoming
-detection, as soon as possible.</p>
+<dd><p>Detect a Cobalstamp watermark in an audio signal.
+In most cases the full audio is not uploaded to the server.
+The server returns its verdict as soon as possible.
+When the verdict is pending it will be made available as soon as possible
+by a subsequent call on the same audio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -353,16 +346,15 @@ detection, as soon as possible.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>The server’s verdict as a dictionary, one of:</p>
-<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;ppid&quot;:</span> <span class="pre">str,</span> <span class="pre">&quot;is_ai&quot;:</span> <span class="pre">bool|null,</span> <span class="pre">&quot;ai_type&quot;:</span> <span class="pre">str|null,</span> <span class="pre">&quot;is_test&quot;:</span> <span class="pre">bool}</span></code>
-when a registered mark is verified — <code class="docutils literal notranslate"><span class="pre">ppid</span></code> is the provider
+<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;ppid&quot;:</span> <span class="pre">str,</span> <span class="pre">&quot;is_ai&quot;:</span> <span class="pre">bool|null,</span> <span class="pre">&quot;ai_type&quot;:</span> <span class="pre">str|null,</span> <span class="pre">&quot;is_test&quot;:</span> <span class="pre">bool,</span> <span class="pre">&quot;mark_id&quot;:</span> <span class="pre">str}</span></code>
+when a registered mark is verified — <code class="docutils literal notranslate"><span class="pre">ppid</span></code> is the public provider
 identifier of the entity that marked the audio; <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> says
-whether it declared the audio AI-related (<code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code> /
-<code class="docutils literal notranslate"><span class="pre">None</span></code> when undetermined); <code class="docutils literal notranslate"><span class="pre">ai_type</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code> /
+whether they declared the audio AI-related (<code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code>); <code class="docutils literal notranslate"><span class="pre">ai_type</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code> /
 <code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when the mark specifies a type, else <code class="docutils literal notranslate"><span class="pre">None</span></code>
 (including when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> with an unspecified type);
-<code class="docutils literal notranslate"><span class="pre">is_test</span></code> says the mark is a test mark.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">None,</span> <span class="pre">&quot;pending&quot;:</span> <span class="pre">&quot;modified_marks&quot;}</span></code> when a quick
-first pass does not confirm a mark — the server runs the
+<code class="docutils literal notranslate"><span class="pre">is_test</span></code> says the mark is a test mark; <code class="docutils literal notranslate"><span class="pre">mark_id</span></code> is the mark
+id of the verified marking (the id <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code> returns).</p>
+<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">None,</span> <span class="pre">&quot;pending&quot;:</span> <span class="pre">&quot;modified_marks&quot;}</span></code> when the server runs an
 extended search in the background, and the final verdict is
 available on a subsequent detection of the same audio, as soon as possible.</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">False}</span></code> when no registered mark is found.</p>
@@ -375,18 +367,17 @@ available on a subsequent detection of the same audio, as soon as possible.</p>
 <dt class="sig sig-object py" id="cobalstamp.forget">
 <span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">forget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.forget" title="Link to this definition">¶</a></dt>
 <dd><p>Forget a registered test mark on the server, freeing the marked audio so
-it can be marked again.</p>
+it can be marked again (mainly for testing purpose).</p>
 <p>This only applies to marks made with <code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>. Marks made with
 <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> are never affected by this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>id</strong> – The mark id to forget (the <code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code> value returned by
 <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>), or <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> to forget all the test marks
-of the logged-in account.</p>
+belonging to the account.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The number of forgotten test marks: <code class="docutils literal notranslate"><span class="pre">1</span></code> for a single mark id,
-the total number of test marks forgotten for <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code>.</p>
+<dd class="field-even"><p>The number of forgotten test marks with this call.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,7 +478,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=ae2dcd57"></script>
+</div><script src="_static/documentation_options.js?v=cae21d13"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
