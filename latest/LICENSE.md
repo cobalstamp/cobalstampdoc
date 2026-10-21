@@ -122,7 +122,7 @@ The Company does not warrant or guarantee that updates to subsequent major versi
 
 The Company shall not be held liable for any damages, losses, or claims arising from or related to the unauthorized access to, compromise of, or tampering with the Products, whether such unauthorized access is the result of hacking, reverse engineering, circumvention of security measures, or any other form of exploitation by you or any third parties.
 
-This provision also applies in circumstances where a third party gains unauthorized access to, or circumvents, restrictions or limitations intended solely for the benefit of the Purchase Agreement, Offer, Quote, Account, Tier granted to you.
+This provision also applies in circumstances where a third party gains unauthorized access to, or circumvents, restrictions or limitations intended solely for the benefit of the Purchase Agreement, Offer, Quote, Account, Plan granted to you.
 
 
 ## 1.6 Data Commitments
@@ -309,7 +309,7 @@ These Terms may be made available to you in a language other than English. In th
 
 # 2. Specific Terms
 
-In contrast to Section 1, the provisions set forth in this Section 2 shall be construed and applied in accordance with the specific type of Purchase Agreement, Offer, Quote, Account, Tier, and payment recurrence that you have agreed, used, or are using, to access the Products.
+In contrast to Section 1, the provisions set forth in this Section 2 shall be construed and applied in accordance with the specific type of Purchase Agreement, Offer, Quote, Account, Plan, and payment recurrence that you have agreed, used, or are using, to access the Products.
 
 
 ## 2.1 Account, Ownership and Legal Responsibility
@@ -380,7 +380,7 @@ All fees are exclusive of all taxes, levies, or duties imposed by taxing authori
 
 We request your waiver of Right of Withdrawal for the following two reasons.
 
-A "Testing" tier is provided to the users, which allows enough usage before deciding to buy any subscription.
+A "Testing" plan is provided to the users, which allows enough usage before deciding to buy any subscription.
 
 When you purchase and use our Products, you receive immediate access to the software and its processing capabilities on your local machine.
 The audio watermarking is performed directly on your device, not on our servers, it cannot be "canceled" nor "returned" to us.

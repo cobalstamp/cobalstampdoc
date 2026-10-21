@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.5.3</title>
+        <title>Marking - Cobalstamp documentation 0.5.4</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.5.3</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.5.4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.5.3</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.5.4</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -318,7 +318,8 @@ exceed full scale).
 <li><p>An info dictionary with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;result&quot;</span></code>: the marking outcome, <code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code> when the mark was embedded and registered.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code>: the public mark id of this marking (a UUID).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code>: the public mark id of this marking (a UUID).
+Present when your plan exposes the mark id; omitted otherwise.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;is_test&quot;</span></code>: the test-mode flag of this marking.</p></li>
 </ul>
 </li>
@@ -353,7 +354,8 @@ whether they declared the audio AI-related (<code class="docutils literal notran
 <code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when the mark specifies a type, else <code class="docutils literal notranslate"><span class="pre">None</span></code>
 (including when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> with an unspecified type);
 <code class="docutils literal notranslate"><span class="pre">is_test</span></code> says the mark is a test mark; <code class="docutils literal notranslate"><span class="pre">mark_id</span></code> is the mark
-id of the verified marking (the id <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code> returns).</p>
+id of the verified marking (the id <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code> returns),
+present when your plan exposes the mark id, omitted otherwise.</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">None,</span> <span class="pre">&quot;pending&quot;:</span> <span class="pre">&quot;modified_marks&quot;}</span></code> when the server runs an
 extended search in the background, and the final verdict is
 available on a subsequent detection of the same audio, as soon as possible.</p>
@@ -478,7 +480,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=cae21d13"></script>
+</div><script src="_static/documentation_options.js?v=2ffc2a8e"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
