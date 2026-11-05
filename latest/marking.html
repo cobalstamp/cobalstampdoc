@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.6.2</title>
+        <title>Marking - Cobalstamp documentation 0.6.4</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.6.2</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.6.4</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.6.2</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.6.4</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -247,7 +247,7 @@
 (detection). Marking embeds the watermark locally on your machine and
 registers the mark on the server. Detection sends the audio to the server,
 which looks for registered marks in it.</p>
-<p>Both operations work with mono audio as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of
+<p>Both operations work with mono or multi-channel audio as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of
 type <code class="docutils literal notranslate"><span class="pre">float32</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p>
 <section id="minimal-example">
 <h2>Minimal example<a class="headerlink" href="#minimal-example" title="Link to this heading">¶</a></h2>
@@ -290,7 +290,8 @@ server.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav</strong> – Input audio signal. A <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of type <code class="docutils literal notranslate"><span class="pre">float32</span></code> or
-<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. Only one-dimensional mono audio is accepted for now.</p></li>
+<code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. One-dimensional mono,
+or two-dimensional <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_channels)</span></code> multi-channel, audio.</p></li>
 <li><p><strong>fs</strong> (<em>float</em>) – Sampling rate of the audio signal in Hz.</p></li>
 <li><p><strong>is_ai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> when declaring that the audio is created using AI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
 <li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
@@ -313,8 +314,9 @@ exceed full scale).
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>A tuple of two elements:</p>
 <ul class="simple">
-<li><p>The watermarked audio signal, as a one-dimensional <code class="docutils literal notranslate"><span class="pre">float32</span></code>
-<code class="docutils literal notranslate"><span class="pre">numpy</span></code> array.</p></li>
+<li><p>The watermarked audio signal, as a <code class="docutils literal notranslate"><span class="pre">float32</span></code> <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array
+with the same shape as the input (multi-channel input keeps its
+channels).</p></li>
 <li><p>An info dictionary with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;result&quot;</span></code>: the marking outcome, <code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code> when the mark was embedded and registered.</p></li>
@@ -341,7 +343,8 @@ by a subsequent call on the same audio.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav</strong> – Input audio signal (<code class="docutils literal notranslate"><span class="pre">numpy</span></code> array, <code class="docutils literal notranslate"><span class="pre">float32</span></code>,
-<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>; mono only).</p></li>
+<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>; one-dimensional mono, or two-dimensional
+<code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_channels)</span></code> multi-channel).</p></li>
 <li><p><strong>fs</strong> (<em>float</em>) – Sampling rate in Hz.</p></li>
 </ul>
 </dd>
@@ -480,7 +483,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=99678979"></script>
+</div><script src="_static/documentation_options.js?v=18b66ea0"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

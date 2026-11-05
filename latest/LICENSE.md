@@ -196,6 +196,7 @@ When you use any of our Products, you must not:
 - Mark any AI-related content as non-AI-related content.
 - Mark any non-AI-related content as AI-related content.
 - Use the Products in a manner that abuse someone's identity.
+- Attempt to remove, alter, forge, or impersonate any mark applied with the Products, as further prohibited in Section 1.8.7.
 - Use the Products for serving violent or harassing content (doxxing, revenge pornography).
 - Use the Products in a manner inconsistent with any applicable laws or regulations, including international laws.
 
@@ -259,6 +260,21 @@ You are fully and solely responsible for the proper application of the marks to 
 You are fully and solely responsible for safeguarding the API keys and credentials of your Account, and for disabling without delay any API key or credential that you suspect to be compromised. The Company is not responsible for any use of the Products by a third party that has obtained your API keys or credentials, and you remain fully responsible for any marking performed with them.
 
 This allocation of responsibility does not limit the assistance the Company provides to you: within the scope of its resources, and within the scope covered by the Services and the Products, the Company remains available to help you with any problem related to a mark applied with the Products, including any question or dispute about such a mark or its detection.
+
+
+### 1.8.7 Prohibition on removal, alteration and impersonation of marks
+
+You are strictly prohibited from removing, stripping, attenuating, suppressing, modifying, altering, distorting, mutilating, or tampering with, in whole or in part, any mark applied to any audio with the Products.
+
+You are strictly prohibited from forging, counterfeiting, replicating, reproducing, copying, imitating, or creating any mark, or any audio bearing a mark, that is identical to, substantially similar to, or reasonably capable of being confused with a mark applied with the Products.
+
+You are strictly prohibited from representing that any mark was applied by, on behalf of, or with the consent of any person or entity other than you, without a valid mandate from that person or entity.
+
+Where you apply a mark on behalf of a person or entity other than you under a valid mandate from them, you remain the legal entity responsible for that mark in accordance with Section 1.8.6.
+
+You are strictly prohibited from developing, building, operating, deploying, offering, distributing, selling, or making available, in whole or in part, whether directly, through any of your Users, or through any third party, any system, software, tool, algorithm, model, device, service, or other means, whether automated, semi-automated, manual, or assisted, that is intended to, or reasonably capable of, removing, altering, forging, or impersonating any mark as described in this Section.
+
+The prohibitions of this Section apply to any act, whether completed, attempted, or facilitated, and regardless of the means employed or the purpose pursued.
 
 
 ## 1.9 Support and Contact Information
@@ -335,7 +351,7 @@ However, if you own an account for the sole purpose of a work of an organisation
 
 The Start date is the date when you first used any of our Products.
 
-The End date is the date when your license has been cancelled (no matter how it has been cancelled).
+The End date is the date when your license has been canceled (no matter how it has been canceled).
 
 ### 2.1.3 Suspension
 
@@ -380,7 +396,7 @@ All fees are exclusive of all taxes, levies, or duties imposed by taxing authori
 
 We request your waiver of Right of Withdrawal for the following two reasons.
 
-A "Testing" plan is provided to the users, which allows enough usage before deciding to buy any subscription.
+The "Testing Marker" plan is provided to the users, which allows enough usage before deciding to buy any subscription.
 
 When you purchase and use our Products, you receive immediate access to the software and its processing capabilities on your local machine.
 The audio watermarking is performed directly on your device, not on our servers, it cannot be "canceled" nor "returned" to us.
