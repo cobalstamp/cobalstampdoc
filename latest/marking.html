@@ -3,12 +3,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Miscellaneous" href="misc.html"><link rel="prev" title="Installation" href="installation.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Command-line interface" href="cli.html"><link rel="prev" title="Installation" href="installation.html">
         <link rel="canonical" href="https://docs.cobalstamp.dev/latest/marking.html">
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.7.0</title>
+        <title>Marking - Cobalstamp documentation 0.7.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.7.0</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.7.1</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.7.0</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.7.1</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -201,6 +201,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Marking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html#general-terms">1. General Terms</a></li>
@@ -319,7 +320,7 @@ with the same shape as the input (multi-channel input keeps its
 channels).</p></li>
 <li><p>An info dictionary with:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;result&quot;</span></code>: the marking outcome, <code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code> when the mark was embedded and registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;marked&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> when the mark was embedded and registered.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;mark_id&quot;</span></code>: the public mark id of this marking (a UUID).
 Present when your plan exposes the mark id; omitted otherwise.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;is_test&quot;</span></code>: the test-mode flag of this marking.</p></li>
@@ -409,12 +410,12 @@ call to the server, so it is in effect for the login (for example
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="misc.html">
+          <a class="next-page" href="cli.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Miscellaneous</div>
+                <div class="title">Command-line interface</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -483,7 +484,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=423e15eb"></script>
+</div><script src="_static/documentation_options.js?v=26f1c5af"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
