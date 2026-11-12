@@ -1,6 +1,6 @@
 Copyright © 2025-2026 Phoneshift, France. contact@cobalstamp.dev
 
-Last updated: October 19th, 2026.
+Last updated: November 10th, 2026.
 
 # 1. General Terms
 
@@ -13,7 +13,7 @@ This section sets forth the terms and conditions of the license that are univers
 - **Website**: Any of the main or sub domain of cobalstamp.dev
 - **You or your**: The owner of a Cobalstamp license and an Account on our Website. This license allows to use parts or all of our Products.
 - **Account**: A billing account, a digital entity on our Website that allows you to manage your subscription, payment and other elements related to your license.
-- **Subscriber Accounts**: Are those who use the Products as part of a paid subscription plan, thus paying periodicaly.
+- **Subscriber Accounts**: Are those who use the Products as part of a paid subscription plan, thus paying periodically.
 - **Free Accounts**: Are those who use the Products without subscription plan.
 - **Users**: Any entity, linked to an Account, that makes use of a license, a physical person, an automated service, a bot, etc.
 - **Status page**: The website displaying the status of the Web Services and Websites. Accessible online at: https://status.cobalstamp.dev
@@ -75,6 +75,17 @@ By using any of our Products, you acknowledge and agree that you are solely resp
 
 You retain full ownership and control over all audio material processed through the Products.
 The processing of audio signals through the use of the Products, including their retention on the Company's servers, shall not be construed to confer upon the Company any ownership, rights, title, or interest, whether in whole or in part, in either the input or output signals.
+
+### 1.3.3 Technical protection measures
+
+The Products, including the SDKs, are protected by technical protection measures, including license verification and network checks.
+You are prohibited from reverse engineering, decompiling, disassembling, or otherwise attempting to extract the source code or the trade secrets of the Products.
+You are prohibited from removing, disabling, or circumventing any technical protection measure or licensing mechanism of the Products, except to the extent, and under the conditions, permitted by applicable law for interoperability purposes.
+Any such act constitutes a material breach of these Terms.
+Such a material breach entitles the Company to immediate Termination without compensation under Section 2.1.6.
+The use of the Products that you make by circumventing the technical protection measures is unlicensed use.
+The Company may claim, as damages for that unlicensed use, an amount equal to the license fees that would have been due from you if that use had been covered by a valid license.
+Such an act may additionally constitute an infringement of intellectual property rights under applicable law.
 
 
 ## 1.4 Liability
@@ -187,7 +198,7 @@ When you use any of our Products, you must not:
 - Upload or transmit (or attempt to upload or to transmit) viruses or any type of malware, or information collection mechanism, including 1x1 pixels, web bugs, cookies, or other similar devices.
 - Interfere with, disrupt, or create an undue burden on the networks or the Products connected.
 - Attempt to disrupt our Products or Websites by means of unfair competition practice.
-- Harass, abuse physically or verbally, provoke, annoy, engage into malicious rethorics, intimidate, insult or make derogatory comments, attack personally, or threaten others, or any of our employees or officers.
+- Harass, abuse physically or verbally, provoke, annoy, engage into malicious rhetoric, intimidate, insult or make derogatory comments, attack personally, or threaten others, or any of our employees or officers.
 - Publishing others' private information, such as a physical or electronic address, without explicit written permission.
 - Have any other conduct which could reasonably be considered inappropriate in a professional setting.
 - Disparage, tarnish, or otherwise harm, in our opinion, us, the Company or the Products.
@@ -345,7 +356,9 @@ Please create a separate Account for each legal entity you work with.
 
 By default, our legal responsibility is to the account owner, so we won't let other people take over your account without your permission.
 
-However, if you own an account for the sole purpose of a work of an organisation (a company, a society, an association, a fondation, etc.), our legal responsibility is to the organisation. Upon reception of the necessary document provided by your organisation, we might transfer your account to another individual of the same organisation without your permission.
+This default does not apply to an Account that you own for the sole purpose of a work of an organization (a company, a society, an association, a foundation, etc.), because in that case our legal responsibility is to the organization.
+Upon request of that organization, we may transfer such an Account to another individual of the same organization without your permission.
+We decide on a case-by-case basis which supporting documents are required to process such a transfer.
 
 ### 2.1.2 Start and end dates
 
@@ -370,12 +383,13 @@ However, if you cancel your account before the end of your current paid up perio
 
 ### 2.1.5 Deletion
 
-After cancellation (no matter how it was canceled), within 60 days, all data we might own will be permanently deleted from our active systems logs and backups. We cannot recover this information once it has been permanently deleted.
+After cancellation (no matter how it was canceled), within 60 days, all personal data and account data associated with the Account will be permanently deleted from our active systems logs and backups.
+We cannot recover this information once it has been permanently deleted.
 
-There are three exceptions to the retention periods above:
+There are the following exceptions to the retention periods above:
 
 * Tax and other administrative laws might force us to keep some data. We will always do our best to delete this type of information as soon as possible.
-* Data that has any value for handling any dispute or litigation might be held as long as necessary (see Section 1.6.4).
+* Data that has any value for handling any dispute, litigation, or investigation of a violation of these Terms, including Section 1.8, might be held as long as necessary (see Section 1.6.4).
 * Fully anonymized information (see Section 1.6.1).
 
 ### 2.1.6 Termination
@@ -384,7 +398,7 @@ If you violate any of the Terms, we may terminate your account, without notice a
 
 You may Terminate the License at any time through the Cancellation and Deletion process (Sec. 2.1.4 and 2.1.5).
 
-A Termination implies an immmediate Cancellation process followed by a Deletion process.
+A Termination implies an immediate Cancellation process followed by a Deletion process, subject to the exceptions of Section 2.1.5.
 
 Upon termination, you must immediately cease using our Products.
 
@@ -409,7 +423,7 @@ By completing your purchase, you confirm that you understand and accept that:
 - Your statutory right of withdrawal ends when the purchase is completed.
 - The purchase is final and no refunds shall be available.
 
-### 2.2.3 Periodic payments for Subscriber Accounts
+### 2.2.2 Periodic payments for Subscriber Accounts
 
 By purchasing through a Subscription, the provisions of this Section shall be binding upon you.
 
@@ -419,14 +433,14 @@ Due to the nature of the product, the Company does not offer refunds. If you tru
 
 Sometimes we change the pricing structure for our products. When we do that, we tend to exempt existing customers from those changes. However, we may choose to change the prices for existing customers. If we do so, we will give at least 30 days notice and will notify you via the email address on record.
 
-### 2.2.4 Trial periods
+### 2.2.3 Trial periods
 
 At the end of any free trial period you may be using, either of the two will happen:
 
 * The account will be charged according to the user's chosen subscription.
 * The account will be Suspended until upgraded to a paid version.
 
-### 2.2.5 Usage quota
+### 2.2.4 Usage quota
 
 When a quantity limit is imposed for a specified time period (e.g., 1 hour per month), the following provisions shall apply:
 
