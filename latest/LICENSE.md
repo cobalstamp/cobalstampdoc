@@ -1,6 +1,6 @@
 Copyright © 2025-2026 Phoneshift, France. contact@cobalstamp.dev
 
-Last updated: November 10th, 2026.
+Last updated: November 17th, 2026.
 
 # 1. General Terms
 
@@ -9,6 +9,7 @@ This section sets forth the terms and conditions of the license that are univers
 ## 1.1 Definitions
 
 - **The Products**: Cobalstamp provides audio watermarking technologies. Here below, watermarking technologies, Software Packages, Software Development Toolkits (SDKs) and related Services, Web Services and Websites are referred as the Products.
+- **The Brand**: The name "Cobalstamp", and the logos, wordmarks, domain names, trademarks, and any other elements identifying the Company or the Products.
 - **We, us, the Company, Phoneshift**: The legal owner and rights holders of the Products, as a sole proprietorship. https://cobalstamp.dev/en/legal/legal-notice
 - **Website**: Any of the main or sub domain of cobalstamp.dev
 - **You or your**: The owner of a Cobalstamp license and an Account on our Website. This license allows to use parts or all of our Products.
@@ -44,8 +45,10 @@ The Company own all rights, title, and interest in and to the Products, includin
 
 No portion of the materials contained on the Company's Websites or within any of the Products may be duplicated, copied, or reused in any form or by any means without the prior express written consent of the Company.
 
-You must request permission to use the Company's logos or any Products logos, if they exist, for promotional purposes.
-We reserve the right to rescind any permissions if you violate the Terms of this License.
+You are strictly prohibited from using, reproducing, displaying, mentioning, or referring to the Brand, in whole or in part, in any form, in any medium, and for any purpose.
+This prohibition includes, without limitation, the names of products, applications, or services, app store listings, websites, documentation, user interfaces, marketing and promotional materials, press releases, invoices, and any other public or private communication.
+The only exceptions to this prohibition are the attribution required by Section 2.4 where your Purchase Agreement specifies it, and any use for which you have obtained the prior express written consent of the Company.
+Any use of the Brand in violation of this section constitutes a material breach of these Terms.
 
 The resale or distribution of any portion of the Products, or the Products in their entirety, whether in their original form or with only minimal modifications or added value, is strictly prohibited.
 
