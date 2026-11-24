@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.10.0</title>
+        <title>Marking - Cobalstamp documentation 0.12.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.10.0</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.12.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.10.0</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.12.0</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -249,7 +249,8 @@
 registers the mark on the server. Detection sends the audio to the server,
 which looks for registered marks in it.</p>
 <p>Both operations work with mono or multi-channel audio as a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array of
-type <code class="docutils literal notranslate"><span class="pre">float32</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p>
+type <code class="docutils literal notranslate"><span class="pre">float32</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. Marking also works on WAV
+files (<a class="reference internal" href="#cobalstamp.mark_file" title="cobalstamp.mark_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark_file()</span></code></a>).</p>
 <section id="minimal-example">
 <h2>Minimal example<a class="headerlink" href="#minimal-example" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -298,7 +299,8 @@ or two-dimensional <code class="docutils literal notranslate"><span class="pre">
 <li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
 when the audio is AI-generated (ex. text-to-audio),
 <code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced by an AI transformation process
-(audio-to-audio). Ignored when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+(audio-to-audio). Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing it
+with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code> is an error.</p></li>
 <li><p><strong>is_test</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>). Test marks
 (<code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>) can be forgotten with <a class="reference internal" href="#cobalstamp.forget" title="cobalstamp.forget"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a>.
 <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> creates a permanent mark that cannot be forgotten.
@@ -330,6 +332,67 @@ Present when your plan exposes the mark id; omitted otherwise.</p></li>
 </li>
 </ul>
 </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cobalstamp.mark_file">
+<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">mark_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_ai</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compress'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_disclosure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.mark_file" title="Link to this definition">¶</a></dt>
+<dd><p>Mark a standard WAV(RIFF) file similarly to the <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a> function and
+append a C2PA credential (the Cobalstamp transparency manifest, signed by the
+server).</p>
+<p>Supported formats: 8, 16, 24, 32-bit integer PCM or 32-bit IEEE float,
+at any sample rate and channel count.
+Compressed formats, RF64 files (C2PA limit) and files that already
+carry a C2PA credential are rejected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wav_path</strong> (<em>str</em>) – Path of the input WAV file.</p></li>
+<li><p><strong>out_path</strong> (<em>str</em>) – Path of the output WAV file (created; replaced
+when it exists).</p></li>
+<li><p><strong>is_ai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> when declaring that the audio is created
+using AI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+<li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
+when the audio is AI-generated, <code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced
+by an AI transformation process.
+Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing it with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code>
+is an error.</p></li>
+<li><p><strong>is_test</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>), same as
+<a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
+<li><p><strong>clip_fn</strong> – Same as <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
+<li><p><strong>ai_disclosure</strong> (<em>dict</em>) – <p>Optional AI-disclosure fields written to the
+C2PA credential (the <code class="docutils literal notranslate"><span class="pre">c2pa.ai-disclosure</span></code> assertion); <code class="docutils literal notranslate"><span class="pre">None</span></code>
+omits them. Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing them
+with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code> is an error. Every field is optional; omit
+the ones you do not have. Leading and trailing whitespace is
+removed from string values. The recognized keys:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;modelType&quot;</span></code>: a string, at most 1024 characters. A value of
+the C2PA model-type table (ex. <code class="docutils literal notranslate"><span class="pre">&quot;c2pa.types.model&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;c2pa.types.model.huggingface.transformers&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;c2pa.types.model.pytorch&quot;</span></code>) or a provider-namespaced value.
+When omitted, the base value <code class="docutils literal notranslate"><span class="pre">&quot;c2pa.types.model&quot;</span></code> is written.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;modelName&quot;</span></code>: a string, at most 1024 characters; the name of
+the model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;modelIdentifier&quot;</span></code>: a string, at most 1024 characters; a
+stable identifier of the model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;humanOversightLevel&quot;</span></code>: one of <code class="docutils literal notranslate"><span class="pre">&quot;fully_autonomous&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;prompt_guided&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;human_validated&quot;</span></code>; the degree of human
+involvement in the generation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;scientificDomain&quot;</span></code>: a list of at most 100 strings, each at
+most 64 characters; the content domain according to the
+<a class="reference external" href="https://arxiv.org/category_taxonomy">arXiv taxonomy</a>.
+Each entry must be dot-separated alphanumerics and hyphens
+(ex. <code class="docutils literal notranslate"><span class="pre">&quot;cs.AI&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;physics.optics&quot;</span></code>); any other character is
+an error.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The info dictionary of <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -470,6 +533,7 @@ call to the server, so it is in effect for the login (for example
 <li><a class="reference internal" href="#api-reference">API reference</a><ul>
 <li><a class="reference internal" href="#watermarking">Watermarking</a><ul>
 <li><a class="reference internal" href="#cobalstamp.mark"><code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a></li>
+<li><a class="reference internal" href="#cobalstamp.mark_file"><code class="docutils literal notranslate"><span class="pre">cobalstamp.mark_file()</span></code></a></li>
 <li><a class="reference internal" href="#cobalstamp.detect"><code class="docutils literal notranslate"><span class="pre">cobalstamp.detect()</span></code></a></li>
 <li><a class="reference internal" href="#cobalstamp.forget"><code class="docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a></li>
 </ul>
@@ -488,7 +552,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=66f6ad91"></script>
+</div><script src="_static/documentation_options.js?v=437ad5a5"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

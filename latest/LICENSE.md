@@ -280,6 +280,8 @@ This allocation of responsibility does not limit the assistance the Company prov
 
 You are strictly prohibited from removing, stripping, attenuating, suppressing, modifying, altering, distorting, mutilating, or tampering with, in whole or in part, any mark applied to any audio with the Products.
 
+This prohibition extends to the digitally signed in-file metadata embedded in a marked audio file.
+
 You are strictly prohibited from forging, counterfeiting, replicating, reproducing, copying, imitating, or creating any mark, or any audio bearing a mark, that is identical to, substantially similar to, or reasonably capable of being confused with a mark applied with the Products.
 
 You are strictly prohibited from representing that any mark was applied by, on behalf of, or with the consent of any person or entity other than you, without a valid mandate from that person or entity.
@@ -413,7 +415,7 @@ All fees are exclusive of all taxes, levies, or duties imposed by taxing authori
 
 We request your waiver of Right of Withdrawal for the following two reasons.
 
-The "Testing Marker" plan is provided to the users, which allows enough usage before deciding to buy any subscription.
+The "Marker Test" plan is provided to the users, which allows enough usage before deciding to buy any subscription.
 
 When you purchase and use our Products, you receive immediate access to the software and its processing capabilities on your local machine.
 The audio watermarking is performed directly on your device, not on our servers, it cannot be "canceled" nor "returned" to us.
