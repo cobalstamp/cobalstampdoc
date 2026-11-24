@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Marking - Cobalstamp documentation 0.12.0</title>
+        <title>Marking - Cobalstamp documentation 0.14.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.12.0</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.14.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.12.0</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.14.0</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -261,7 +261,7 @@ files (<a class="reference internal" href="#cobalstamp.mark_file" title="cobalst
 <span class="n">wav</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">soundfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;input.wav&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 
 <span class="c1"># Add a watermark and register it.</span>
-<span class="n">marked</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">cobalstamp</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">is_ai</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">marked</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">cobalstamp</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">&quot;ai_generated&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 
 <span class="c1"># Detect a watermark. The audio is sent to the server, which looks</span>
@@ -274,7 +274,7 @@ files (<a class="reference internal" href="#cobalstamp.mark_file" title="cobalst
 <section id="is-test">
 <h2>is_test<a class="headerlink" href="#is-test" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">is_test=True</span></code> (the default) creates a test mark that can be forgotten
-with <a class="reference internal" href="#cobalstamp.forget" title="cobalstamp.forget"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a>. <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> creates a permanent mark
+with <a class="reference internal" href="#cobalstamp.forget_test_mark" title="cobalstamp.forget_test_mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget_test_mark()</span></code></a>. <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> creates a permanent mark
 that cannot be forgotten; permanent marks require a paid plan.</p>
 </section>
 <section id="api-reference">
@@ -285,9 +285,16 @@ the <code class="docutils literal notranslate"><span class="pre">cobalstamp</spa
 <h3>Watermarking<a class="headerlink" href="#watermarking" title="Link to this heading">¶</a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="cobalstamp.mark">
-<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_ai</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compress'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.mark" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">media_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compress'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.mark" title="Link to this definition">¶</a></dt>
 <dd><p>Mark an audio signal with a Cobalstamp watermark and register it on the
 server.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function only does the watermarking, because it works on the
+audio signal only. It cannot sign the file’s metadata, which is another requirement under certain compliance regulations.
+You can use <a class="reference internal" href="#cobalstamp.mark_file" title="cobalstamp.mark_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark_file()</span></code></a> to do both watermarking and signing the metadata at once.
+<a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a> is provided so that you can use another metadata signing framework.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -295,14 +302,13 @@ server.</p>
 <code class="docutils literal notranslate"><span class="pre">float64</span></code>, with amplitudes in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. One-dimensional mono,
 or two-dimensional <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_channels)</span></code> multi-channel, audio.</p></li>
 <li><p><strong>fs</strong> (<em>float</em>) – Sampling rate of the audio signal in Hz.</p></li>
-<li><p><strong>is_ai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> when declaring that the audio is created using AI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
-<li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
-when the audio is AI-generated (ex. text-to-audio),
-<code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced by an AI transformation process
-(audio-to-audio). Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing it
-with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code> is an error.</p></li>
+<li><p><strong>media_type</strong> (<em>str</em>) – The AI-related type of the audio: <code class="docutils literal notranslate"><span class="pre">&quot;not_ai&quot;</span></code>
+when it is not AI-related, <code class="docutils literal notranslate"><span class="pre">&quot;ai_generated&quot;</span></code> when it is AI-generated
+(ex. text-to-audio), <code class="docutils literal notranslate"><span class="pre">&quot;ai_transformed&quot;</span></code> when it is produced by an
+AI transformation process (audio-to-audio), <code class="docutils literal notranslate"><span class="pre">&quot;ai&quot;</span></code> when it is
+AI-related and the type is unspecified.</p></li>
 <li><p><strong>is_test</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>). Test marks
-(<code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>) can be forgotten with <a class="reference internal" href="#cobalstamp.forget" title="cobalstamp.forget"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a>.
+(<code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>) can be forgotten with <a class="reference internal" href="#cobalstamp.forget_test_mark" title="cobalstamp.forget_test_mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget_test_mark()</span></code></a>.
 <code class="docutils literal notranslate"><span class="pre">is_test=False</span></code> creates a permanent mark that cannot be forgotten.
 Permanent marks require a paid plan; with a free plan, <code class="docutils literal notranslate"><span class="pre">mark()</span></code>
 raises an error asking you to upgrade.</p></li>
@@ -338,35 +344,38 @@ Present when your plan exposes the mark id; omitted otherwise.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cobalstamp.mark_file">
-<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">mark_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_ai</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compress'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_disclosure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.mark_file" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">mark_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wav_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">media_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'compress'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ai_disclosure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.mark_file" title="Link to this definition">¶</a></dt>
 <dd><p>Mark a standard WAV(RIFF) file similarly to the <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a> function and
 append a C2PA credential (the Cobalstamp transparency manifest, signed by the
 server).</p>
 <p>Supported formats: 8, 16, 24, 32-bit integer PCM or 32-bit IEEE float,
 at any sample rate and channel count.
-Compressed formats, RF64 files (C2PA limit) and files that already
+Compressed formats (to come), RF64 files (C2PA limit) and files that already
 carry a C2PA credential are rejected.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The C2PA signature covers the whole output file content, not only
+the audio: any metadata present in the input file (ex. tags) will
+be part of the signature.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wav_path</strong> (<em>str</em>) – Path of the input WAV file.</p></li>
 <li><p><strong>out_path</strong> (<em>str</em>) – Path of the output WAV file (created; replaced
 when it exists).</p></li>
-<li><p><strong>is_ai</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> when declaring that the audio is created
-using AI, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
-<li><p><strong>ai_type</strong> – The AI type (optional, default <code class="docutils literal notranslate"><span class="pre">None</span></code>): <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code>
-when the audio is AI-generated, <code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when it is produced
-by an AI transformation process.
-Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing it with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code>
-is an error.</p></li>
+<li><p><strong>media_type</strong> – Same as <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
 <li><p><strong>is_test</strong> (<em>bool</em>) – Test-mode flag (default <code class="docutils literal notranslate"><span class="pre">True</span></code>), same as
 <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
 <li><p><strong>clip_fn</strong> – Same as <a class="reference internal" href="#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
 <li><p><strong>ai_disclosure</strong> (<em>dict</em>) – <p>Optional AI-disclosure fields written to the
-C2PA credential (the <code class="docutils literal notranslate"><span class="pre">c2pa.ai-disclosure</span></code> assertion); <code class="docutils literal notranslate"><span class="pre">None</span></code>
-omits them. Only used when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> — passing them
-with <code class="docutils literal notranslate"><span class="pre">is_ai=False</span></code> is an error. Every field is optional; omit
-the ones you do not have. Leading and trailing whitespace is
+C2PA credential; <code class="docutils literal notranslate"><span class="pre">None</span></code> omits them. All keys except
+<code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code> are written to the <code class="docutils literal notranslate"><span class="pre">c2pa.ai-disclosure</span></code>
+assertion and only used when <code class="docutils literal notranslate"><span class="pre">media_type</span></code> is an AI value
+(<code class="docutils literal notranslate"><span class="pre">&quot;ai_generated&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ai_transformed&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ai&quot;</span></code>) — passing them
+with <code class="docutils literal notranslate"><span class="pre">media_type=&quot;not_ai&quot;</span></code> is an error. <code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code> is
+used for both AI and non-AI declarations. Every field is optional;
+omit the ones you do not have. Leading and trailing whitespace is
 removed from string values. The recognized keys:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;modelType&quot;</span></code>: a string, at most 1024 characters. A value of
@@ -387,6 +396,9 @@ most 64 characters; the content domain according to the
 Each entry must be dot-separated alphanumerics and hyphens
 (ex. <code class="docutils literal notranslate"><span class="pre">&quot;cs.AI&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;physics.optics&quot;</span></code>); any other character is
 an error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code>: a string; the Digital Source Type
+declaration of the marking; see the <a class="reference internal" href="#digital-source-type"><span class="std std-ref">Digital source type</span></a>
+section at the end of this page.</p></li>
 </ul>
 </p></li>
 </ul>
@@ -416,15 +428,15 @@ by a subsequent call on the same audio.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p>The server’s verdict as a dictionary, one of:</p>
-<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;ppid&quot;:</span> <span class="pre">str,</span> <span class="pre">&quot;is_ai&quot;:</span> <span class="pre">bool|null,</span> <span class="pre">&quot;ai_type&quot;:</span> <span class="pre">str|null,</span> <span class="pre">&quot;is_test&quot;:</span> <span class="pre">bool,</span> <span class="pre">&quot;mark_id&quot;:</span> <span class="pre">str}</span></code>
+<p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;ppid&quot;:</span> <span class="pre">str,</span> <span class="pre">&quot;media_type&quot;:</span> <span class="pre">str|null,</span> <span class="pre">&quot;is_test&quot;:</span> <span class="pre">bool,</span> <span class="pre">&quot;mark_id&quot;:</span> <span class="pre">str}</span></code>
 when a registered mark is verified — <code class="docutils literal notranslate"><span class="pre">ppid</span></code> is the public provider
-identifier of the entity that marked the audio (the key is omitted
-when that entity has chosen not to disclose it to you; it is always
-present when the mark is from your own account); <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> says
-whether they declared the audio AI-related (<code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code>); <code class="docutils literal notranslate"><span class="pre">ai_type</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;generated&quot;</span></code> /
-<code class="docutils literal notranslate"><span class="pre">&quot;transformed&quot;</span></code> when the mark specifies a type, else <code class="docutils literal notranslate"><span class="pre">None</span></code>
-(including when <code class="docutils literal notranslate"><span class="pre">is_ai</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> with an unspecified type);
-<code class="docutils literal notranslate"><span class="pre">is_test</span></code> says the mark is a test mark; <code class="docutils literal notranslate"><span class="pre">mark_id</span></code> is the mark
+identifier of the entity that marked the audio; the key is omitted
+when the mark is anonymous (no provider identity disclosed),
+including when the mark is from your own account; <code class="docutils literal notranslate"><span class="pre">media_type</span></code> is
+the value they declared: <code class="docutils literal notranslate"><span class="pre">&quot;not_ai&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ai_generated&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;ai_transformed&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ai&quot;</span></code> (AI, type unspecified); <code class="docutils literal notranslate"><span class="pre">None</span></code>
+when the stored value is ambiguous; <code class="docutils literal notranslate"><span class="pre">is_test</span></code> says the mark is a test
+mark; <code class="docutils literal notranslate"><span class="pre">mark_id</span></code> is the mark
 id of the verified marking (the id <code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code> returns),
 present when your plan exposes the mark id, omitted otherwise.</p>
 <p><code class="docutils literal notranslate"><span class="pre">{&quot;marked&quot;:</span> <span class="pre">None,</span> <span class="pre">&quot;pending&quot;:</span> <span class="pre">&quot;modified_marks&quot;}</span></code> when the server runs an
@@ -437,8 +449,8 @@ available on a subsequent detection of the same audio, as soon as possible.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="cobalstamp.forget">
-<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">forget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.forget" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cobalstamp.forget_test_mark">
+<span class="sig-prename descclassname"><span class="pre">cobalstamp.</span></span><span class="sig-name descname"><span class="pre">forget_test_mark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cobalstamp.forget_test_mark" title="Link to this definition">¶</a></dt>
 <dd><p>Forget a registered test mark on the server, freeing the marked audio so
 it can be marked again (mainly for testing purpose).</p>
 <p>This only applies to marks made with <code class="docutils literal notranslate"><span class="pre">is_test=True</span></code>. Marks made with
@@ -469,6 +481,86 @@ call to the server, so it is in effect for the login (for example
 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">COBALSTAMP_TIMEOUT=20</span></code> on a slow connection, see
 <a class="reference internal" href="misc.html#misc-slow-connection"><span class="std std-ref">Slow connection</span></a>).</p></li>
 </ul>
+</section>
+<section id="digital-source-type">
+<span id="id3"></span><h2>Digital source type<a class="headerlink" href="#digital-source-type" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code> key of the <code class="docutils literal notranslate"><span class="pre">ai_disclosure</span></code> argument of
+<a class="reference internal" href="#cobalstamp.mark_file" title="cobalstamp.mark_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark_file()</span></code></a> is a string, one of the IPTC NewsCodes
+<a class="reference external" href="https://cv.iptc.org/newscodes/digitalsourcetype/">Digital Source Type</a>
+values listed below.
+It is written in the metadata.</p>
+<p>This list is revised over time and likely to grow, so it can’t be used directly
+in the watermark.
+This is the reason why Cobalstamp uses a limited set of values
+for <code class="docutils literal notranslate"><span class="pre">media_type</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;not_ai&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ai_generated&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ai_transformed&quot;</span></code>
+or <code class="docutils literal notranslate"><span class="pre">&quot;ai&quot;</span></code> (AI, type unspecified).</p>
+<p>If you set a value to the <code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code> key of the <code class="docutils literal notranslate"><span class="pre">ai_disclosure</span></code> dict,
+the media_type will be forced to the corresponding value below.</p>
+<p>If you set a value to <code class="docutils literal notranslate"><span class="pre">media_type</span></code>,
+the <code class="docutils literal notranslate"><span class="pre">&quot;digitalSourceType&quot;</span></code> key of the <code class="docutils literal notranslate"><span class="pre">ai_disclosure</span></code> dict will be forced to the corresponding value below.</p>
+<p>The recognized values, grouped by the declaration they correspond to:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>digitalSourceType</p></th>
+<th class="head"><p>media_type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>digitalCapture</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>computationalCapture</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>negativeFilm</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>positiveFilm</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>print</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>humanEdits</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>algorithmicallyEnhanced</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>digitalCreation</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>dataDrivenMedia</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>algorithmicMedia</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>screenCapture</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>compositeCapture</p></td>
+<td><p>not_ai</p></td>
+</tr>
+<tr class="row-even"><td><p>virtualRecording</p></td>
+<td><p>ai</p></td>
+</tr>
+<tr class="row-odd"><td><p>compositeSynthetic</p></td>
+<td><p>ai</p></td>
+</tr>
+<tr class="row-even"><td><p>compositeWithTrainedAlgorithmicMedia</p></td>
+<td><p>ai_transformed</p></td>
+</tr>
+<tr class="row-odd"><td><p>trainedAlgorithmicMedia</p></td>
+<td><p>ai_generated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The short name <code class="docutils literal notranslate"><span class="pre">composite</span></code> is a recognized IPTC code, but Cobalstamp
+rejects it: it does not declare an AI origin, which defeats the purpose of Cobalstamp.
+Please declare the AI origin explicitly, with one of the AI short names above.</p>
 </section>
 </section>
 
@@ -535,12 +627,13 @@ call to the server, so it is in effect for the login (for example
 <li><a class="reference internal" href="#cobalstamp.mark"><code class="docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a></li>
 <li><a class="reference internal" href="#cobalstamp.mark_file"><code class="docutils literal notranslate"><span class="pre">cobalstamp.mark_file()</span></code></a></li>
 <li><a class="reference internal" href="#cobalstamp.detect"><code class="docutils literal notranslate"><span class="pre">cobalstamp.detect()</span></code></a></li>
-<li><a class="reference internal" href="#cobalstamp.forget"><code class="docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a></li>
+<li><a class="reference internal" href="#cobalstamp.forget_test_mark"><code class="docutils literal notranslate"><span class="pre">cobalstamp.forget_test_mark()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#environment-variables">Environment variables</a></li>
+<li><a class="reference internal" href="#digital-source-type">Digital source type</a></li>
 </ul>
 </li>
 </ul>
@@ -552,7 +645,7 @@ call to the server, so it is in effect for the login (for example
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=437ad5a5"></script>
+</div><script src="_static/documentation_options.js?v=2dee5df9"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

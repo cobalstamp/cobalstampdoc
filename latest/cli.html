@@ -8,7 +8,7 @@
         <link rel="prefetch" href="_static/cobalstamp128.png" as="image">
 
     <link rel="shortcut icon" href="_static/cobalstamp96.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Command-line interface - Cobalstamp documentation 0.12.0</title>
+        <title>Command-line interface - Cobalstamp documentation 0.14.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -164,7 +164,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Cobalstamp documentation 0.12.0</div></a>
+      <a href="index.html"><div class="brand">Cobalstamp documentation 0.14.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,7 +189,7 @@
         <img class="sidebar-logo" src="_static/cobalstamp128.png" alt="Logo" />
     </div>
     
-    <span class="sidebar-brand-text">Cobalstamp documentation 0.12.0</span>
+    <span class="sidebar-brand-text">Cobalstamp documentation 0.14.0</span>
     
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -255,17 +255,15 @@ the same channel layout as the input.</p>
 </section>
 <section id="marking">
 <h2>Marking<a class="headerlink" href="#marking" title="Link to this heading">¶</a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cobalstamp mark input.wav --output marked.wav --not-ai</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cobalstamp mark input.wav --output marked.wav --media-type not-ai</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">mark</span></code> command marks the input audio file, registers the mark on
 the server, and writes the marked audio to the output file. The flags
 follow <a class="reference internal" href="marking.html#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--is-ai</span></code> / <code class="docutils literal notranslate"><span class="pre">--not-ai</span></code> (exactly one is required): declare that the
-audio is created using AI, or not.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--ai-type</span> <span class="pre">generated|transformed</span></code> (optional): the AI type, when
-<code class="docutils literal notranslate"><span class="pre">--is-ai</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--media-type</span> <span class="pre">not-ai|ai-generated|ai-transformed|ai</span></code> (required): the AI-related
+type of the audio, same values as <a class="reference internal" href="marking.html#cobalstamp.mark" title="cobalstamp.mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.mark()</span></code></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--clip</span> <span class="pre">compress|rescale|none</span></code> (default <code class="docutils literal notranslate"><span class="pre">compress</span></code>): protects the
 marked audio from exceeding full scale.</p></li>
 </ul>
@@ -290,9 +288,8 @@ the same shape as the one returned by <a class="reference internal" href="markin
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;marked&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;mark_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eac8d9d9-c918-442b-b66c-13b1170ab2b3&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;is_ai&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ai_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ppid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8JKH-A5VH-6DPD-M73L&quot;</span>
+<span class="w">  </span><span class="nt">&quot;media_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_ai&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ppid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VLJC-KKGM-7PT6&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -305,7 +302,7 @@ the same shape as the one returned by <a class="reference internal" href="markin
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">forget</span></code> command forgets a registered test mark, freeing the
 marked audio so it can be marked again. It prints the number of
-forgotten test marks on stdout, as <a class="reference internal" href="marking.html#cobalstamp.forget" title="cobalstamp.forget"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget()</span></code></a> does.</p>
+forgotten test marks on stdout, as <a class="reference internal" href="marking.html#cobalstamp.forget_test_mark" title="cobalstamp.forget_test_mark"><code class="xref py py-func docutils literal notranslate"><span class="pre">cobalstamp.forget_test_mark()</span></code></a> does.</p>
 </section>
 <section id="exit-codes">
 <h2>Exit codes<a class="headerlink" href="#exit-codes" title="Link to this heading">¶</a></h2>
@@ -390,7 +387,7 @@ network failure); a one-line message is printed on stderr.</p></li>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=437ad5a5"></script>
+</div><script src="_static/documentation_options.js?v=2dee5df9"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
